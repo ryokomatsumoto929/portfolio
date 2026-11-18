@@ -1,0 +1,512 @@
+:root {
+  --bg: #faf9f7;
+  --surface: #f3f1ee;
+  --border: #e4e0da;
+  --navy: #2c3e50;
+  --navy-light: #3d5166;
+  --accent: #5a7d60;
+  --text: #3a3530;
+  --muted: #6f6a64; /* 旧 #8c8680 → コントラスト改善 */
+  --white: #ffffff;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 4rem;
+  background: rgba(250, 249, 247, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.2rem;
+  color: var(--navy);
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: var(--navy);
+}
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 4rem 4rem;
+}
+.hero-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.2s forwards;
+}
+.hero-title {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--navy);
+  opacity: 0;
+  animation: fadeUp 0.7s 0.35s forwards;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  margin-top: 1.8rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 520px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.5s forwards;
+}
+.hero-cta {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.65s forwards;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--navy);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+.btn-primary:hover {
+  background: var(--navy-light);
+}
+.btn-ghost {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+  transition:
+    border-color 0.3s,
+    color 0.3s;
+}
+.btn-ghost:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+section {
+  padding: 6rem 4rem;
+}
+.section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+.section-title {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.about {
+  background: var(--surface);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about-text p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  line-height: 1.9;
+}
+.about-text p strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.skills-wrap + .skills-wrap {
+  margin-top: 2rem;
+}
+.skills-wrap h3 {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 1.2rem;
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.skill-tag {
+  padding: 0.4rem 0.9rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-radius: 2px;
+  transition:
+    border-color 0.3s,
+    color 0.3s;
+}
+.skill-tag:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+/* Works */
+.works-group-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin: 0 0 0.4rem;
+}
+.works-group-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.8rem;
+}
+.works-group + .works-group {
+  margin-top: 5rem;
+}
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ↓ 旧コードでセレクタ ".work-card {" が抜けていた箇所を復元 */
+.work-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  border-radius: 4px;
+  transition:
+    box-shadow 0.3s,
+    transform 0.3s;
+}
+.work-card:hover {
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.07);
+  transform: translateY(-3px);
+}
+
+/* サムネイルの比率をそろえる（全体は contain、クリックで拡大） */
+.work-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--surface);
+  border: 0;
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  padding: 0.75rem;
+}
+.work-preview.zoom {
+  cursor: zoom-in;
+}
+.work-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.work-num {
+  font-family: "DM Serif Display", serif;
+  font-size: 2.5rem;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.work-tag-item {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 2px;
+}
+.work-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  background: #eef3ef;
+  color: var(--accent);
+  border-radius: 2px;
+}
+.work-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+}
+.work-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+.work-brief {
+  margin-bottom: 1.2rem;
+}
+.work-brief div {
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--border);
+}
+.work-brief dt {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--navy);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.work-brief dd {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.85;
+}
+.work-links {
+  display: flex;
+  gap: 1.2rem;
+}
+.work-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.1rem;
+  transition: border-color 0.3s;
+}
+.work-link:hover {
+  border-color: var(--navy);
+}
+
+/* 拡大表示 */
+dialog.lightbox {
+  border: 0;
+  background: transparent;
+  max-width: 96vw;
+  max-height: 96vh;
+  margin: auto;
+  overflow: visible;
+}
+dialog.lightbox::backdrop {
+  background: rgba(30, 36, 42, 0.82);
+}
+dialog.lightbox img {
+  display: block;
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 3px;
+  background: var(--white);
+}
+dialog.lightbox button {
+  position: absolute;
+  top: -2.6rem;
+  right: 0;
+  background: none;
+  border: 0;
+  color: var(--white);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.contact {
+  text-align: center;
+}
+.contact p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 420px;
+  margin: 0 auto 2rem;
+}
+.contact-email {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  color: var(--navy);
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3rem;
+  transition: border-color 0.3s;
+  margin-bottom: 2.5rem;
+}
+.contact-email:hover {
+  border-color: var(--navy);
+}
+.contact-socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.contact-socials a {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contact-socials a:hover {
+  color: var(--navy);
+}
+
+footer {
+  padding: 1.8rem 4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.2rem;
+  }
+  .nav-logo {
+    font-size: 1rem;
+  }
+  .nav-links {
+    gap: 1.1rem;
+  } /* スマホでも消さずに表示 */
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+  }
+  section,
+  .hero,
+  footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .about-grid,
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .works-grid {
+    gap: 1.5rem;
+  }
+  .work-card {
+    padding: 1.5rem;
+  }
+  footer {
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-label,
+  .hero-title,
+  .hero-sub,
+  .hero-cta {
+    animation: none;
+    opacity: 1;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .work-card {
+    transition: none;
+  }
+}
