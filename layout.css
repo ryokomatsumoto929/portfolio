@@ -1,0 +1,505 @@
+:root {
+  --bg: #faf9f7;
+  --surface: #f3f1ee;
+  --border: #e4e0da;
+  --navy: #2c3e50;
+  --navy-light: #3d5166;
+  --accent: #5a7d60;
+  --text: #3a3530;
+  --muted: #6f6a64;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body#top {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* ---------- Header / Nav ---------- */
+body#top > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(250, 249, 247, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 4rem;
+}
+header nav p {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.2rem;
+  color: var(--navy);
+}
+header nav ul {
+  display: flex;
+  gap: 2.5rem;
+}
+header nav a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+header nav a:hover {
+  color: var(--navy);
+}
+
+/* ---------- 共通：セクション ---------- */
+main > section {
+  padding: 6rem 4rem;
+}
+main > section > p:first-child {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+main > section h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+/* ---------- Hero ---------- */
+section#home {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 4rem 4rem;
+}
+section#home > div > * {
+  opacity: 0;
+}
+section#home p:first-child {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.7s 0.2s forwards;
+}
+section#home h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--navy);
+  animation: fadeUp 0.7s 0.35s forwards;
+}
+section#home h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+section#home p:last-of-type {
+  margin-top: 1.8rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 520px;
+  animation: fadeUp 0.7s 0.5s forwards;
+}
+section#home > div > div {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  animation: fadeUp 0.7s 0.65s forwards;
+}
+section#home a {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+}
+section#home a:first-child {
+  background: var(--navy);
+  color: var(--white);
+  transition: background 0.3s;
+}
+section#home a:first-child:hover {
+  background: var(--navy-light);
+}
+section#home a:last-child {
+  border: 1px solid var(--border);
+  color: var(--muted);
+  transition:
+    border-color 0.3s,
+    color 0.3s;
+}
+section#home a:last-child:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+/* ---------- About ---------- */
+section#about {
+  background: var(--surface);
+}
+section#about > div {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: start;
+}
+section#about > div p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  line-height: 1.9;
+}
+section#about strong {
+  color: var(--text);
+  font-weight: 500;
+}
+section#about > div > div:last-child > div + div {
+  margin-top: 2rem;
+}
+section#about h3 {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 1.2rem;
+}
+section#about ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+section#about li {
+  padding: 0.4rem 0.9rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-radius: 2px;
+  transition:
+    border-color 0.3s,
+    color 0.3s;
+}
+section#about li:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+/* ---------- Works ---------- */
+section#works > div + div {
+  margin-top: 5rem;
+}
+section#works h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+section#works > div > p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.8rem;
+}
+section#works > div > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+section#works article {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  border-radius: 4px;
+  transition:
+    opacity 0.6s ease,
+    transform 0.4s ease,
+    box-shadow 0.3s;
+}
+section#works article:hover {
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.07);
+  transform: translateY(-3px);
+}
+
+/* サムネイル（全体は contain、クリックで拡大） */
+section#works article > button {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--surface);
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  padding: 0.75rem;
+  cursor: zoom-in;
+}
+/* Instagram縦型（02〜04）は 4:5 の枠にして大きく見せる */
+section#works > div:nth-of-type(1) article:nth-child(n + 2):nth-child(-n + 4) > button {
+  aspect-ratio: 4 / 5;
+}
+section#works article > button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+section#works article > p:first-of-type {
+  font-family: "DM Serif Display", serif;
+  font-size: 2.5rem;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+section#works article ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+section#works article li {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 2px;
+}
+/* 末尾のタグは「自主制作」「個人開発」などのバッジ */
+section#works article li:last-child {
+  background: #eef3ef;
+  color: var(--accent);
+}
+section#works article h4 {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+}
+section#works article > p:nth-of-type(2) {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+section#works article dl {
+  margin-bottom: 1.2rem;
+}
+section#works article dl > div {
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--border);
+}
+section#works article dt {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--navy);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+section#works article dd {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.85;
+}
+section#works article > div {
+  display: flex;
+  gap: 1.2rem;
+}
+section#works article > div a {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.1rem;
+  transition: border-color 0.3s;
+}
+section#works article > div a:hover {
+  border-color: var(--navy);
+}
+
+/* ---------- 拡大表示 ---------- */
+dialog {
+  border: 0;
+  background: transparent;
+  max-width: 96vw;
+  max-height: 96vh;
+  margin: auto;
+  overflow: visible;
+}
+dialog::backdrop {
+  background: rgba(30, 36, 42, 0.82);
+}
+dialog img {
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 3px;
+  background: var(--white);
+}
+dialog button {
+  position: absolute;
+  top: -2.6rem;
+  right: 0;
+  color: var(--white);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+/* ---------- Contact ---------- */
+section#contact {
+  text-align: center;
+}
+section#contact h2 {
+  margin-bottom: 1rem;
+}
+section#contact p:nth-of-type(2) {
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 420px;
+  margin: 0 auto 2rem;
+}
+section#contact > div:nth-of-type(1) a {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  color: var(--navy);
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3rem;
+  transition: border-color 0.3s;
+  margin-bottom: 2.5rem;
+}
+section#contact > div:nth-of-type(1) a:hover {
+  border-color: var(--navy);
+}
+section#contact > div:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+section#contact > div:nth-of-type(2) a {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+section#contact > div:nth-of-type(2) a:hover {
+  color: var(--navy);
+}
+
+/* ---------- Footer ---------- */
+body#top > footer {
+  padding: 1.8rem 4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* ---------- スクロール表示（script.js が data-reveal を付ける） ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+[data-reveal="shown"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- スマホ ---------- */
+@media (max-width: 768px) {
+  header nav {
+    padding: 1rem 1.2rem;
+  }
+  header nav p {
+    font-size: 1rem;
+  }
+  header nav ul {
+    gap: 1.1rem;
+  }
+  header nav a {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+  }
+  main > section {
+    padding: 4rem 1.5rem;
+  }
+  section#home {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+  section#about > div {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  section#works > div > div {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  section#works article {
+    padding: 1.5rem;
+  }
+  body#top > footer {
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  section#home > div > * {
+    animation: none;
+    opacity: 1;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  section#works article {
+    transition: none;
+  }
+}
